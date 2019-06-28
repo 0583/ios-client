@@ -433,6 +433,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Register"/>
+                                                <connections>
+                                                    <action selector="registerButtonTapped:" destination="SKw-js-425" eventType="touchUpInside" id="UB0-CP-285"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -537,6 +540,7 @@ All rights reserved.</string>
                         <outlet property="loginButton" destination="pxd-wc-bQ1" id="mHg-6h-Sqc"/>
                         <outlet property="loginMainView" destination="P7b-XL-Was" id="rhV-41-7FF"/>
                         <outlet property="passWordTextField" destination="Gen-My-02E" id="8y3-B7-69X"/>
+                        <outlet property="registerButton" destination="N5D-a2-aWb" id="TGx-SR-FX9"/>
                         <outlet property="resetButton" destination="rYQ-iB-mT9" id="a6B-BG-tjn"/>
                         <outlet property="userNameTextField" destination="OPh-8c-dV7" id="J7p-ob-zSq"/>
                     </connections>

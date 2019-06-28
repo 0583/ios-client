@@ -18,6 +18,10 @@ class illumiUrl {
     // password - Password, String
     static let loginPostUrl = baseIp + "/login"
     
+    // parameters:
+    // username, password, confirmPassword
+    static let registerPostUrl = baseIp + "/register"
+    
     // parameters: <None>
     static let logoutPostUrl = baseIp + "/logout"
     
@@ -45,5 +49,7 @@ class illumiUrl {
     // parameters: <None>
     static let tagAllGetUrl = baseIp + "/getAllTag"
     
-    static let imagePostUrl = baseIp + "/"
+    // parameters:
+    //
+    static let imagePostUrl = baseIp + "/upload"
 }

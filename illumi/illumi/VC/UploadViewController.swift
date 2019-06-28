@@ -13,8 +13,16 @@ import SwiftyJSON
 import Alamofire_SwiftyJSON
 
 class UploadViewController: UIViewController, ImagePickerDelegate {
+    
+    func promptError(_ title: String, _ message: String) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        
+        // Do nothing
     }
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
@@ -33,6 +41,7 @@ class UploadViewController: UIViewController, ImagePickerDelegate {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
                         guard let result = response.result.value else { return }
+                        self.promptError("Done", "Image Upload Complete")
                         print("json: \(result)")
                     }
 
@@ -40,7 +49,7 @@ class UploadViewController: UIViewController, ImagePickerDelegate {
                         print("image upload progress \(progress.fractionCompleted)")
                     }
                 case .failure(let encodingError):
-                    print(encodingError)
+                    self.promptError("Upload Failure", "Server reported an “\(encodingError.localizedDescription)” error")
                 }
             })
         }
