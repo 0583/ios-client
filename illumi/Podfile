@@ -6,10 +6,27 @@ target 'illumi' do
   use_frameworks!
 
   # Pods for illumi
+
+  # SwiftyJSON. That's great!
+  pod 'SwiftyJSON'
+
+  # Alamofire, just as elegant as requests
   pod 'Alamofire'
+
+  # Alamofire and SwiftyJSON
+  # can be used altogether with Alamofire-SwiftyJSON
   pod 'Alamofire-SwiftyJSON'
+
+  # IQKeyboardManager
+  # Totally clean, needless any line of code
   pod 'IQKeyboardManager'
+
+  # TTGTCV, used for displaying
+  # image tags
   pod "TTGTagCollectionView"
+
+  # ImagePicker, used for
+  # Image selection or something
   pod 'ImagePicker'
 
   target 'illumiTests' do
