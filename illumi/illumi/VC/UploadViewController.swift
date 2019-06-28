@@ -55,7 +55,7 @@ class UploadViewController: UIViewController, ImagePickerDelegate {
                     upload.responseJSON { response in
                         guard let result = response.result.value else { return }
                         loadingAlert.dismiss(animated: true, completion: {
-                            self.promptError("Done", "Image Upload Complete")
+                            self.promptError("Done", "Image Upload Complete.\nServer says:\n \(result)")
                         })
                         
                         print("json: \(result)")

@@ -20,6 +20,8 @@
 		8A4FDD2D22C5947E00890BF2 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDD2C22C5947E00890BF2 /* ImageDetailViewController.swift */; };
 		8A4FDD2F22C5ABF800890BF2 /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDD2E22C5ABF800890BF2 /* ImageTableViewController.swift */; };
 		8A4FDD3222C5D97E00890BF2 /* RandomSentences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDD3122C5D97E00890BF2 /* RandomSentences.swift */; };
+		8A4FDD3622C5F03A00890BF2 /* BlurredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDD3522C5F03A00890BF2 /* BlurredView.m */; };
+		8A4FDD3B22C5F10A00890BF2 /* CoreImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDD3A22C5F10A00890BF2 /* CoreImage.m */; };
 		8A82BF5022B0A72300EE7602 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82BF4F22B0A72300EE7602 /* AppDelegate.swift */; };
 		8A82BF5222B0A72300EE7602 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82BF5122B0A72300EE7602 /* SceneDelegate.swift */; };
 		8A82BF5922B0A72300EE7602 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A82BF5722B0A72300EE7602 /* Main.storyboard */; };
@@ -55,6 +57,10 @@
 		8A4FDD2C22C5947E00890BF2 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		8A4FDD2E22C5ABF800890BF2 /* ImageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
 		8A4FDD3122C5D97E00890BF2 /* RandomSentences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSentences.swift; sourceTree = "<group>"; };
+		8A4FDD3422C5F03A00890BF2 /* illumi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "illumi-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A4FDD3522C5F03A00890BF2 /* BlurredView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlurredView.m; sourceTree = "<group>"; };
+		8A4FDD3922C5F10A00890BF2 /* CoreImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreImage.h; sourceTree = "<group>"; };
+		8A4FDD3A22C5F10A00890BF2 /* CoreImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreImage.m; sourceTree = "<group>"; };
 		8A82BF4C22B0A72300EE7602 /* illumi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = illumi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A82BF4F22B0A72300EE7602 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A82BF5122B0A72300EE7602 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +130,17 @@
 			path = Random;
 			sourceTree = "<group>";
 		};
+		8A4FDD3322C5F00F00890BF2 /* BlurredOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				8A4FDD3522C5F03A00890BF2 /* BlurredView.m */,
+				8A4FDD3422C5F03A00890BF2 /* illumi-Bridging-Header.h */,
+				8A4FDD3922C5F10A00890BF2 /* CoreImage.h */,
+				8A4FDD3A22C5F10A00890BF2 /* CoreImage.m */,
+			);
+			path = BlurredOverlay;
+			sourceTree = "<group>";
+		};
 		8A82BF4322B0A72300EE7602 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +164,7 @@
 		8A82BF4E22B0A72300EE7602 /* illumi */ = {
 			isa = PBXGroup;
 			children = (
+				8A4FDD3322C5F00F00890BF2 /* BlurredOverlay */,
 				8A4FDD3022C5D96E00890BF2 /* Random */,
 				8A25281722C507ED005A0365 /* Struct */,
 				8AC451EA22C4F37D0095C457 /* Constants */,
@@ -263,6 +281,7 @@
 				TargetAttributes = {
 					8A82BF4B22B0A72300EE7602 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					8A82BF6822B0A85500EE7602 = {
 						CreatedOnToolsVersion = 11.0;
@@ -382,8 +401,10 @@
 				8A0B000F22C4AC3C00514389 /* LoginViewController.swift in Sources */,
 				8A4FDD2D22C5947E00890BF2 /* ImageDetailViewController.swift in Sources */,
 				8A25281922C507FA005A0365 /* Structure.swift in Sources */,
+				8A4FDD3622C5F03A00890BF2 /* BlurredView.m in Sources */,
 				8A4FDD3222C5D97E00890BF2 /* RandomSentences.swift in Sources */,
 				8AC451EC22C4F3900095C457 /* illumiUrl.swift in Sources */,
+				8A4FDD3B22C5F10A00890BF2 /* CoreImage.m in Sources */,
 				8A1989E622C4FC48004B446D /* TagManager.swift in Sources */,
 				8A0B000D22C4ABF100514389 /* MeViewController.swift in Sources */,
 				8AC451E922C4F1170095C457 /* MainTabBarController.swift in Sources */,
@@ -554,6 +575,7 @@
 			baseConfigurationReference = 8AB696BFF64C81CAA3579E79 /* Pods-illumi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F6EKR37AV8;
 				INFOPLIST_FILE = illumi/Info.plist;
@@ -564,6 +586,8 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.0583.illumi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "illumi/BlurredOverlay/illumi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -574,6 +598,7 @@
 			baseConfigurationReference = E257B71405CDCD6971688EFF /* Pods-illumi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F6EKR37AV8;
 				INFOPLIST_FILE = illumi/Info.plist;
@@ -584,6 +609,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.0583.illumi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "illumi/BlurredOverlay/illumi-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
