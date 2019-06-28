@@ -27,7 +27,20 @@ class UploadViewController: UIViewController, ImagePickerDelegate {
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         NSLog("done pressed")
+        imagePicker.dismiss(animated: true, completion: nil)
         if images.count >= 1 {
+            
+            let loadingAlert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+            
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.medium
+            loadingIndicator.startAnimating();
+            
+            loadingAlert.view.addSubview(loadingIndicator)
+            
+            self.present(loadingAlert, animated: true, completion: nil)
+            
             let contentImage = images.first!
             guard let jpegData = contentImage.jpegData(compressionQuality: 0.5) else {
                 return
@@ -41,7 +54,10 @@ class UploadViewController: UIViewController, ImagePickerDelegate {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
                         guard let result = response.result.value else { return }
-                        self.promptError("Done", "Image Upload Complete")
+                        loadingAlert.dismiss(animated: true, completion: {
+                            self.promptError("Done", "Image Upload Complete")
+                        })
+                        
                         print("json: \(result)")
                     }
 
@@ -49,11 +65,12 @@ class UploadViewController: UIViewController, ImagePickerDelegate {
                         print("image upload progress \(progress.fractionCompleted)")
                     }
                 case .failure(let encodingError):
-                    self.promptError("Upload Failure", "Server reported an “\(encodingError.localizedDescription)” error")
+                    loadingAlert.dismiss(animated: true, completion: {
+                        self.promptError("Upload Failure", "Server reported an “\(encodingError.localizedDescription)” error")
+                    })
                 }
             })
         }
-        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {

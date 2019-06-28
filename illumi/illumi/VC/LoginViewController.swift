@@ -51,9 +51,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let regUserName = userNameTextField.text!
         let regPassWord = passWordTextField.text!
         
-        let alert = UIAlertController(title: "Password Confirmation", message: "Enter your password again, \(regUserName)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Password Confirmation", message: "Enter your password again, @\(regUserName)", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
+            textField.isSecureTextEntry = true
             textField.text = ""
         }
         
@@ -83,19 +84,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                               parameters: postParams)
                 .responseSwiftyJSON(completionHandler: { swiftyJSON in
                     if swiftyJSON.value == nil {
-                        self.declareRetryRegister(message: "no response")
-                        loadingAlert.dismiss(animated: true, completion: nil)
+                        loadingAlert.dismiss(animated: true, completion: {
+                            self.declareRetryRegister(message: "no response")
+                        })
                         return
                     }
                     if swiftyJSON.value!["status"].stringValue == "ok" {
-                        let controller = UIAlertController(title: "Done", message: "Congratulations, @“\(regUserName)”@ \nYou've registered an account.", preferredStyle: .alert)
+                        let controller = UIAlertController(title: "Done", message: "Congratulations, @“\(regUserName)”!\nYou've registered an account.", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         controller.addAction(okAction)
-                        loadingAlert.dismiss(animated: true, completion: nil)
-                        self.present(controller, animated: true, completion: nil)
+                        loadingAlert.dismiss(animated: true, completion: {
+                            self.present(controller, animated: true, completion: nil)
+                        })
                     } else {
-                        self.declareRetryRegister(message: swiftyJSON.value!["status"].stringValue)
-                        loadingAlert.dismiss(animated: true, completion: nil)
+                        loadingAlert.dismiss(animated: true, completion: {
+                            self.declareRetryRegister(message: swiftyJSON.value!["status"].stringValue)
+                        })
                         return
                     }
                 })
